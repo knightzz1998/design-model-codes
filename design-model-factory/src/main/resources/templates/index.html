@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        #my-lucky {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+<div id="my-lucky"></div>
+
+<script src="https://unpkg.com/lucky-canvas@1.7.25"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    const myLucky = new LuckyCanvas.LuckyWheel('#my-lucky', {
+        width: '500px',
+        height: '500px',
+        blocks: [{padding: '10px', background: '#617df2'}],
+        prizes: [
+            {background: '#e9e8fe', fonts: [{text: '100元优惠卷'}], type: 1},
+            {background: '#b8c5f2', fonts: [{text: '小台灯'}], type: 2},
+            {background: '#e9e8fe', fonts: [{text: '300元购物卡'}], type: 3},
+            {background: '#b8c5f2', fonts: [{text: '充电宝'}], type: 2},
+            {background: '#e9e8fe', fonts: [{text: '50元优惠卷'}], type: 1},
+            {background: '#b8c5f2', fonts: [{text: 'iphone手机'}], type: 2},
+        ],
+        buttons: [{
+            radius: '35%',
+            background: '#8a9bf3',
+            pointer: true,
+            fonts: [{text: '开始', top: '-10px'}]
+        }],
+        start: function () {
+            // 开始游戏
+            myLucky.play()
+            // 使用定时器模拟接口
+            setTimeout(() => {
+                // 结束游戏
+                myLucky.stop(0)
+            }, 3000)
+        },
+        end: function (prize) {
+            alert("恭喜你, 你抽中了" + prize.fonts[0].text)
+            axios({
+                method: 'post',
+                url: '/lottery',
+                contentType: 'application/json',
+                data: {
+                    commodityType: 1
+                }
+            }).then(function (response) {
+                console.log(response.data)
+            })
+        }
+    })
+</script>
+
+</body>
+</html>
