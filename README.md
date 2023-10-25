@@ -16,3 +16,10 @@
 
 - :white_check_mark: 创建者 - 工厂模式
 - :white_check_mark: 创建者 - 策略模式
+
+
+
+## 相关文档
+
+- axios : https://axios-http.com/docs/api_intro
+- 大转盘抽奖组件 : https://100px.net/docs/wheel.html
