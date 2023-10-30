@@ -19,7 +19,6 @@ public class CacheServiceImpl implements CacheService {
 
     @Override
     public String get(String key) {
-
         return redisUtils.get(key);
     }
 
