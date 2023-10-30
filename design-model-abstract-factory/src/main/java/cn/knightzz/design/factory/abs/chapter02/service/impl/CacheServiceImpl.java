@@ -17,52 +17,24 @@ public class CacheServiceImpl implements CacheService {
 
     RedisUtils redisUtils = new RedisUtils();
 
-    EGM egm = new EGM();
-
-    IIR iir = new IIR();
-
     @Override
-    public String get(String key, Integer cacheType) {
+    public String get(String key) {
 
-        if (1 == cacheType) {
-            return redisUtils.get(key);
-        } else if (2 == cacheType) {
-            return egm.gain(key);
-        }else  {
-            return iir.get(key);
-        }
+        return redisUtils.get(key);
     }
 
     @Override
-    public void set(String key, String value, Integer cacheType) {
-        if (1 == cacheType) {
-            redisUtils.set(key, value);
-        } else if (2 == cacheType) {
-            egm.set(key, value);
-        }else  {
-            iir.set(key, value);
-        }
+    public void set(String key, String value) {
+        redisUtils.set(key, value);
     }
 
     @Override
-    public void set(String key, String value, long timeout, TimeUnit timeUnit, Integer cacheType) {
-        if (1 == cacheType) {
-            redisUtils.set(key, value, timeout, timeUnit);
-        } else if (2 == cacheType) {
-            egm.setEx(key, value, timeout, timeUnit);
-        }else  {
-            iir.setExpire(key, value, timeout, timeUnit);
-        }
+    public void set(String key, String value, long timeout, TimeUnit timeUnit) {
+        redisUtils.set(key, value, timeout, timeUnit);
     }
 
     @Override
-    public void del(String key, Integer cacheType) {
-        if (1 == cacheType) {
-            redisUtils.del(key);
-        } else if (2 == cacheType) {
-            egm.del(key);
-        }else  {
-            iir.del(key);
-        }
+    public void del(String key) {
+        redisUtils.del(key);
     }
 }

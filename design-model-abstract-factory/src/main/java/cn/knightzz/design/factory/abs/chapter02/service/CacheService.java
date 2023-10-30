@@ -9,11 +9,11 @@ import java.util.concurrent.TimeUnit;
  * @create 2023-10-27 11:58
  */
 public interface CacheService {
-    String get(final String key, Integer cacheType);
+    String get(final String key);
 
-    void set(String key, String value, Integer cacheType);
+    void set(String key, String value);
 
-    void set(String key, String value, long timeout, TimeUnit timeUnit, Integer cacheType);
+    void set(String key, String value, long timeout, TimeUnit timeUnit);
 
-    void del(String key, Integer cacheType);
+    void del(String key);
 }
