@@ -12,6 +12,7 @@
         <module>design-model-factory</module>
         <module>design-model-watcher</module>
         <module>design-model-abstract-factory</module>
+        <module>design-model-strategy</module>
     </modules>
 
     <properties>
