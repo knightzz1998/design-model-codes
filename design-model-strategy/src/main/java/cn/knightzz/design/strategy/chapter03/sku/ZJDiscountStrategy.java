@@ -1,6 +1,5 @@
-package cn.knightzz.design.strategy.chapter02.event;
+package cn.knightzz.design.strategy.chapter03.sku;
 
-import cn.knightzz.design.strategy.chapter02.ICouponDiscount;
 import lombok.extern.slf4j.Slf4j;
 
 import java.math.BigDecimal;
@@ -12,7 +11,7 @@ import java.math.BigDecimal;
  * @create 2023-10-31 22:02
  */
 @Slf4j
-public class ZJCouponDiscount implements ICouponDiscount<Double> {
+public class ZJDiscountStrategy implements IDiscountStrategy<Double> {
 
     /**
      * 直减计算

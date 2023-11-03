@@ -1,4 +1,4 @@
-package cn.knightzz.design.strategy.chapter02.event;
+package cn.knightzz.design.strategy.chapter03.sku;
 
 import cn.knightzz.design.strategy.chapter02.ICouponDiscount;
 import lombok.extern.slf4j.Slf4j;
@@ -12,7 +12,7 @@ import java.math.BigDecimal;
  * @create 2023-10-31 22:01
  */
 @Slf4j
-public class NYGCouponDiscount implements ICouponDiscount<Double> {
+public class NYGDiscountStrategy implements IDiscountStrategy<Double> {
 
     /**
      * 无论原价多少 都是按照 N 元

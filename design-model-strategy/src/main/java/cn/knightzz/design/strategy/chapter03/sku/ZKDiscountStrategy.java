@@ -1,6 +1,8 @@
-package cn.knightzz.design.strategy.chapter02.event;
+package cn.knightzz.design.strategy.chapter03.sku;
 
 import cn.knightzz.design.strategy.chapter02.ICouponDiscount;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 
@@ -10,7 +12,9 @@ import java.math.BigDecimal;
  * @description 折扣策略
  * @create 2023-10-31 22:03
  */
-public class ZKCouponDiscount implements ICouponDiscount<Double> {
+@Slf4j
+@Component
+public class ZKDiscountStrategy implements ICouponDiscount<Double> {
 
     /**
      * 折扣计算
